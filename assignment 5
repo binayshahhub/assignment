@@ -1,0 +1,75 @@
+#include<iostream>
+using namespace std;
+ 
+class complex
+{
+ float a,b;
+ 
+ public:
+ complex()
+ {
+  a=b=10;
+ }
+ 
+ complex(float x, float y)
+ {
+  a=x;b=y;
+ }
+ 
+ complex operator + (complex c2)
+ {
+  complex tmp;
+ 
+  tmp.a=a+c2.a;
+  tmp.b=b+c2.b;
+  
+  return tmp;
+ } 
+ 
+ complex operator - (complex c2)
+ {
+  complex tmp;
+ 
+  tmp.a=a-c2.a;
+  tmp.b=b-c2.b;
+  
+  return tmp;
+ } 
+ 
+ complex operator * (complex c2)
+ {
+  complex tmp;
+ 
+  tmp.a=a*c2.a-b*c2.b;
+  tmp.b=a*c2.b+c2.a*b;
+ 
+  return tmp;
+ }
+ 
+ void display()
+ { 
+  if(b>=0)
+   cout<<" Complex number : "<<a<<"+"<<b<<"i"<<endl;
+  else
+   cout<<" Complex number : "<<a<<b<<"i"<<endl;
+ }
+ 
+};
+ 
+int main()
+{
+ complex c1(3,-5),c2,c3;
+ 
+ c1.display();
+ c2.display();
+ cout<<" Addition is ";
+ c3=c1+c2;
+ c3.display();  
+ cout<<" Subtraction is ";
+ c3=c1-c2;
+ c3.display();
+  cout<<" Multiplication is ";
+ c3=c1*c2;
+ c3.display();
+ return 0;
+}
